@@ -47,7 +47,7 @@ class ScheduleExample extends State<AppointmentDetails> {
 
   void calendarTapped(CalendarTapDetails calendarTapDetails) {
     if (calendarTapDetails.targetElement == CalendarElement.appointment) {
-      Appointment appointment = calendarTapDetails.appointments[0];
+      Appointment appointment = calendarTapDetails.appointments![0];
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => SecondRoute(appointment:appointment)),
@@ -74,7 +74,7 @@ class ScheduleExample extends State<AppointmentDetails> {
 }
 
 class SecondRoute extends StatelessWidget {
-  Appointment appointment;
+  Appointment? appointment;
 
   SecondRoute({this.appointment});
 
@@ -89,18 +89,18 @@ class SecondRoute extends StatelessWidget {
           Divider(color: Colors.white,),
           Center(
             child: Text(
-              appointment.subject,
+              appointment!.subject,
             ),
           ),
           Divider(color: Colors.white,),
           Center(
             child: Text(
-                DateFormat('MMMM yyyy,hh:mm a').format(appointment.startTime,).toString()),
+                DateFormat('MMMM yyyy,hh:mm a').format(appointment!.startTime,).toString()),
           ),
           Divider(color: Colors.white,),
           Center(
             child: Text(
-                DateFormat('MMMM yyyy,hh:mm a').format(appointment.endTime,).toString()),
+                DateFormat('MMMM yyyy,hh:mm a').format(appointment!.endTime,).toString()),
           ),
         ],
       ),
