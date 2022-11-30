@@ -7,6 +7,7 @@ Using the Flutter event calendar's [onTap](https://pub.dev/documentation/syncfus
 
 You can show the appointment details (subject, startTime, and endTime) in the second page by retrieving them from the constructor's parameter.
 
+![NavigationPage](https://user-images.githubusercontent.com/46158936/204770908-99526e27-50ce-4da6-812f-e88dc41701a7.gif)
 
 ## Requirements to run the demo
 * [VS Code](https://code.visualstudio.com/download)
