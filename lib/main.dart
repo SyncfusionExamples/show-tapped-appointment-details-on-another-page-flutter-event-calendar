@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-void main() => runApp(TappedDetails());
+void main() => runApp(const TappedDetails());
 
 class TappedDetails extends StatelessWidget {
+  const TappedDetails({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AppointmentDetails(),
     );
@@ -15,6 +17,8 @@ class TappedDetails extends StatelessWidget {
 }
 
 class AppointmentDetails extends StatefulWidget {
+  const AppointmentDetails({super.key});
+
   @override
   State<StatefulWidget> createState() => ScheduleExample();
 }
@@ -24,10 +28,10 @@ class ScheduleExample extends State<AppointmentDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('First Route'),
+          title: const Text('First Route'),
         ),
         body: SfCalendar(
-          allowedViews: [
+          allowedViews: const [
             CalendarView.day,
             CalendarView.week,
             CalendarView.workWeek,
@@ -39,7 +43,7 @@ class ScheduleExample extends State<AppointmentDetails> {
             CalendarView.schedule
           ],
           view: CalendarView.month,
-          monthViewSettings: MonthViewSettings(showAgenda: true),
+          monthViewSettings: const MonthViewSettings(showAgenda: true),
           onTap: calendarTapped,
           dataSource: _getCalendarDataSource(),
         ));
@@ -59,13 +63,13 @@ class ScheduleExample extends State<AppointmentDetails> {
     List<Appointment> appointments = <Appointment>[];
     appointments.add(Appointment(
       startTime: DateTime.now(),
-      endTime: DateTime.now().add(Duration(hours: 2)),
+      endTime: DateTime.now().add(const Duration(hours: 2)),
       subject: 'Meeting',
       color: Colors.green,
     ));
     appointments.add(Appointment(
-      startTime: DateTime.now().add(Duration(hours: 3)),
-      endTime: DateTime.now().add(Duration(hours: 4)),
+      startTime: DateTime.now().add(const Duration(hours: 3)),
+      endTime: DateTime.now().add(const Duration(hours: 4)),
       subject: 'Planning',
       color: Colors.orange,
     ));
@@ -76,28 +80,28 @@ class ScheduleExample extends State<AppointmentDetails> {
 class SecondRoute extends StatelessWidget {
   Appointment? appointment;
 
-  SecondRoute({this.appointment});
+  SecondRoute({super.key, this.appointment});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second Route"),
+        title: const Text("Second Route"),
       ),
       body: Column(
         children: [
-          Divider(color: Colors.white,),
+          const Divider(color: Colors.white,),
           Center(
             child: Text(
               appointment!.subject,
             ),
           ),
-          Divider(color: Colors.white,),
+          const Divider(color: Colors.white,),
           Center(
             child: Text(
                 DateFormat('MMMM yyyy,hh:mm a').format(appointment!.startTime,).toString()),
           ),
-          Divider(color: Colors.white,),
+          const Divider(color: Colors.white,),
           Center(
             child: Text(
                 DateFormat('MMMM yyyy,hh:mm a').format(appointment!.endTime,).toString()),
